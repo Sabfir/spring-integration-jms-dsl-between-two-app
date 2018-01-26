@@ -1,6 +1,6 @@
 //package com.opinta;
 //
-//import com.opinta.gateway.MessageGateway;
+//import com.opinta.gateway.StringMessageGateway;
 //import java.io.IOException;
 //import javax.jms.ConnectionFactory;
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +28,12 @@
 //@ImportResource("classpath:integration-context.xml")
 //public class AppGatewayExample implements ApplicationRunner {
 //    @Autowired
-//    private MessageGateway messageGateway;
+//    private StringMessageGateway messageGateway;
 //    @Autowired
 //    private ConnectionFactory connectionFactory;
-//    @Value("${queue.boot}")
+//    @Value("${queue.gateway}")
 //    private String destination;
-//    @Value("${queue.boot-reply}")
+//    @Value("${queue.gateway-reply}")
 //    private String destinationReply;
 //    @Value("${channel.request.start}")
 //    private String channel;

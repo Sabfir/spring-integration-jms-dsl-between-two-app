@@ -1,7 +1,9 @@
 package com.opinta;
 
+import com.opinta.dto.Client;
+import java.util.Arrays;
 import javax.jms.ConnectionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -23,13 +25,13 @@ import org.springframework.integration.scheduling.PollerMetadata;
 @IntegrationComponentScan
 @EnableIntegration
 @ImportResource("classpath:integration-context.xml")
-public class AppAdapterExample implements ApplicationRunner {
-    @Value("${queue.boot}")
+public class AppAdapterReceiveObjectExample implements ApplicationRunner {
+    @Value("${queue.adapter}")
     private String destination;
     private String channel = "channel_1";
 
     public static void main( String[] args ) {
-        SpringApplication.run(AppAdapterExample.class, args);
+        SpringApplication.run(AppAdapterReceiveObjectExample.class, args);
     }
 
     @Override
@@ -43,7 +45,7 @@ public class AppAdapterExample implements ApplicationRunner {
                 .from(Jms.inboundAdapter(connectionFactory)
                         .destination(destination))
                 .transform(payload -> payload) // dummy transformer
-                .handle(String.class, ((payload, headers) -> payload)) // dummy handle
+                .handle(Client.class, ((payload, headers) -> payload)) // dummy handle
                 .channel(channel)
                 .get();
     }

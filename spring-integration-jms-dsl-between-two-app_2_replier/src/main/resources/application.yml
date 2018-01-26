@@ -1,7 +1,10 @@
 spring:
   activemq:
     broker-url: tcp://localhost:61616
+    packages:
+      trust-all: true
 
 queue:
-  boot: boot.q
-  boot-reply: boot.reply.q
+  boot: gateway.q
+  boot-reply: gateway.reply.q
+  adapter: adapter.q

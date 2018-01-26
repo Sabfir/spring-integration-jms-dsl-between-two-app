@@ -18,9 +18,9 @@
 //@Configuration
 //@ImportResource("classpath:integration-context.xml")
 //public class AppGatewayExample implements ApplicationRunner {
-//    @Value("${queue.boot}")
+//    @Value("${queue.gateway}")
 //    private String destination;
-//    @Value("${queue.boot-reply}")
+//    @Value("${queue.gateway-reply}")
 //    private String destinationReply;
 //
 //    public static void main( String[] args ) {

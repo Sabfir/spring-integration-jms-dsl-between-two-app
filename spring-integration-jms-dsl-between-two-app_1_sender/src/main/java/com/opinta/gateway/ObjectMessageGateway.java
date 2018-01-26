@@ -1,11 +1,12 @@
 package com.opinta.gateway;
 
+import com.opinta.dto.Client;
 import org.springframework.integration.annotation.Gateway;
 import org.springframework.integration.annotation.MessagingGateway;
 
 @MessagingGateway
-public interface MessageGateway {
+public interface ObjectMessageGateway {
 
     @Gateway(requestChannel = "request.ch")
-    void putToChannel(String message);
+    void putToChannel(Client message);
 }
